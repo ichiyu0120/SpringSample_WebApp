@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}"
+	rel="stylesheet"></link>
+<script th:src="@{webjars/jquery/1.11.1/jquery.min.js}"></script>
+<script th:src="@{webjars/bootstrap/3.3.7-1/js/bootstrap.min.js}"></script>
+<title>SignUp</title>
+</head>
+<body>
+	<div class="col-sm-5">
+		<div class="page-header">
+			<h1>ユーザー登録画面</h1>
+		</div>
+		<form method="post" th:action="@{/signup}" th:object="${signupForm}">
+			<table class="table table-bordered table-hover">
+				<tr>
+					<th class="active col-sm-3">ユーザID</th>
+					<td>
+						<div class="form-group">
+							<input type="text" class="form-control" th:field="*{userId}"/>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<th class="active">パスワード</th>
+					<td>
+						<div class="form-group">
+							<input type="text" class="form-control" th:field="*{password}">
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<th class="active">ユーザー名</th>
+					<td>
+						<div class="form-group">
+							<input type="text" class="form-control" th:field="*{userName}">
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<th class="active">誕生日</th>
+					<td>
+						<div class="form-group">
+							<input type="text" class="form-control" placeholder="yyyy/MM/dd" th:field="*{birthday}"/>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<th class="active">年齢</th>
+					<td>
+						<div class="form-group">
+							<input type="text" class="form-control" th:field="*{age}">
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<th class="active">結婚</th>
+					<td>
+						<div class="form-group">
+							<div th:each="item:${radioMarriage}">
+								<input type="radio" name="radioMarriage" th:text="${item.key}"
+									th:value="${item.value}" th:field="*{marriage}"/>
+							</div>
+						</div>
+					</td>
+				</tr>
+			</table>
+			<ul>
+				<li th:each="error:${#fields.detailedErrors()}">
+					<span th:text="${error.message}">Error message</span>
+				</li>
+			</ul>
+			<button class="btn btn-primary" type="submit">ユーザー登録</button>
+		</form>
+	</div>
+
+</body>
+</html>
