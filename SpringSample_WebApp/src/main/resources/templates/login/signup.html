@@ -18,40 +18,45 @@
 				<tr>
 					<th class="active col-sm-3">ユーザID</th>
 					<td>
-						<div class="form-group">
+						<div class="form-group" th:classappend="${#fields.hasErrors('userId')}?'has-error'">
 							<input type="text" class="form-control" th:field="*{userId}"/>
+							<span class="text-danger" th:if="${#fields.hasErrors('userId')}" th:errors="*{userId}">userId error</span>
 						</div>
 					</td>
 				</tr>
 				<tr>
 					<th class="active">パスワード</th>
 					<td>
-						<div class="form-group">
-							<input type="text" class="form-control" th:field="*{password}">
+						<div class="form-group" th:classappend="${#fields.hasErrors('password')}?'has-error'">
+							<input type="text" class="form-control" th:field="*{password}"/>
+							<span class="text-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">password error</span>
 						</div>
 					</td>
 				</tr>
 				<tr>
 					<th class="active">ユーザー名</th>
 					<td>
-						<div class="form-group">
-							<input type="text" class="form-control" th:field="*{userName}">
+						<div class="form-group" th:classappend="${#fields.hasErrors('userName')}?'has-error'">
+							<input type="text" class="form-control" th:field="*{userName}"/>
+							<span class="text-danger" th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}">userName error</span>
 						</div>
 					</td>
 				</tr>
 				<tr>
 					<th class="active">誕生日</th>
 					<td>
-						<div class="form-group">
+						<div class="form-group" th:classappend="${#fields.hasErrors('birthday')}?'has-error'">
 							<input type="text" class="form-control" placeholder="yyyy/MM/dd" th:field="*{birthday}"/>
+							<span class="text-danger" th:if="${#fields.hasErrors('birthday')}" th:errors="*{birthday}">birthday error</span>
 						</div>
 					</td>
 				</tr>
 				<tr>
 					<th class="active">年齢</th>
 					<td>
-						<div class="form-group">
+						<div class="form-group" th:classappend="${#fields.hasErrors('age')}?'has-error'">
 							<input type="text" class="form-control" th:field="*{age}">
+							<span class="text-danger" th:if="${#fields.hasErrors('age')}" th:errors="*{age}">age error</span>
 						</div>
 					</td>
 				</tr>
@@ -63,6 +68,7 @@
 								<input type="radio" name="radioMarriage" th:text="${item.key}"
 									th:value="${item.value}" th:field="*{marriage}"/>
 							</div>
+							<span class="text-danger" th:if="${#fields.hasErrors('marriage')}" th:errors="*{marriage}">marriage error</span>
 						</div>
 					</td>
 				</tr>
