@@ -4,8 +4,8 @@
 	<pluginVersion><![CDATA[3.9.9.201906180643-RELEASE]]></pluginVersion>
 	<configs>
 		<config>
-			<file>src/main/resources/message.properties.xml</file>
-			<name><![CDATA[message.properties]]></name>
+			<file>src/main/resources/messages_en.properties.xml</file>
+			<name><![CDATA[messages_en.properties]]></name>
 		</config>
 	</configs>
 </webflow-project-description>

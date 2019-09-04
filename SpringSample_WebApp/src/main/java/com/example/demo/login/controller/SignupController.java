@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.example.demo.model.GroupOrder;
 import com.example.demo.model.SignupForm;
 
 @Controller
@@ -40,7 +41,7 @@ public class SignupController {
 	}
 	
 	@PostMapping("/signup")
-	public String postSignUp(@ModelAttribute @Validated SignupForm form,BindingResult bindingResult,Model model) {
+	public String postSignUp(@ModelAttribute @Validated(GroupOrder.class) SignupForm form,BindingResult bindingResult,Model model) {
 		
 		if(bindingResult.hasErrors()) {
 			return getSignUp(form, model);
