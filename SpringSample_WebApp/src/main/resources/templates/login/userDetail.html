@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	 xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+<div th:fragment="userDetail_contents">
+	<div class="row">
+		<div class="col-sm-5">
+			<div class="page-header">
+				<h1>ユーザー詳細</h1>
+			</div>
+			<form method="post" th:action="@{/userDetail}" th:object="${signupForm}">
+				<table class="table table-bordered table-hover">
+					<tr>
+						<th class="active col-sm-2">ユーザーID</th>
+						<td class="col-sm-3">
+							<div class="form-group">
+								<input type="text" class="form-control" th:field="*{userId}"
+									 readonly="readonly" />
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<th class="active">パスワード</th>
+						<td>
+							<div class="form-group" th:classappend="${#fields.hasErrors('password')}?'has-error'">
+								<input type="text" class="form-control" th:field="*{password}" />
+								<span class="text-danger" th:if="${#fields.hasErrors('password')}" 
+									th:errors="*{password}">password error</span>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<th class="active">ユーザー名</th>
+						<td>
+							<<div class="form-group" th:classappend="${#fields.hasErrors('userName')}?'has-error'">
+								<input type="text" class="form-control" th:field="*{userName}" />
+								<span class="text-danger" th:if="${#fields.hasErrors('userName')}" 
+									th:errors="*{userName}">userName error</span>
+							</div>
+						</td>
+					</tr>
+					<!-- 明日はここから　誕生日 -->
+					
+					
+					
+					
+					
+				</table>
+			</form>
+		</div>
+	</div>	
+</div>
+</body>
+</html>

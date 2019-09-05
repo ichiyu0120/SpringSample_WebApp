@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	 xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+<div th:fragment="userList_contents">
+	<div class="page-header">
+		<h1>ユーザー一覧</h1>
+	</div>
+	<table class="table table-bordered table-hover table-striped">
+		<tr>
+			<th class="info col-sm-2">ユーザーID</th>
+			<th class="info col-sm-2">ユーザー名</th>
+			<th class="info col-sm-2">誕生日</th>
+			<th class="info col-sm-2">年齢</th>
+			<th class="info col-sm-2">結婚</th>
+			<th class="info col-sm-2"></th>
+		</tr>
+		<tr th:each="user : ${userList}">
+			<td th:text="${user.userId}"></td>
+			<td th:text="${user.userName}"></td>
+			<td th:text="${#dates.format(user.birthday,'YYYY/MM/dd')}"></td>
+			<td th:text="${user.age}"></td>
+			<td th:text="${user.marriage}?'既婚':'未婚'"></td>
+			<td>
+				<a class="btn btn-primary" th:href="@{'/userDetil/'+${user.userId}}">詳細</a>
+			</td>
+		</tr>
+	</table>
+	
+	<label th:text="'合計：'+${userListCount}+'件'"></label><br/>
+	<label class="text-info" th:text="${result}">結果表示</label><br/>
+	
+	<a class="btn btn-primary" th:href="@{'/userList/csv'}">CSV出力</a>
+</div>
+</body>
+</html>
