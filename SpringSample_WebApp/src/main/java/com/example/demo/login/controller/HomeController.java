@@ -17,7 +17,7 @@ public class HomeController {
 	@GetMapping("/home")
 	public String getHome(Model model) {
 		
-		model.addAttribute("contents", "login/home::home_contents");
+	model.addAttribute("contents", "login/home :: home_contents");
 		
 		return "login/homeLayout";
 	}
