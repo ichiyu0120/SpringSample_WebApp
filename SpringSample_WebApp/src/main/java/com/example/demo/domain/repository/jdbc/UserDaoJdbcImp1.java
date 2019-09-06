@@ -13,7 +13,7 @@ import org.springframework.stereotype.Repository;
 import com.example.demo.domain.model.User;
 import com.example.demo.domain.repository.UserDao;
 
-@Repository
+@Repository("UserDaoJdbcImp1")
 public class UserDaoJdbcImp1 implements UserDao{
 	
 	@Autowired
@@ -123,8 +123,12 @@ public class UserDaoJdbcImp1 implements UserDao{
 
 	@Override
 	public void userCsvOut() throws DataAccessException {
-		// TODO 自動生成されたメソッド・スタブ
 		
+		String sql = "SELECT * FROM m_user";
+		
+		UserRowCallbackHandler handler = new UserRowCallbackHandler();
+		
+		jdbc.query(sql,handler);
 	}
 
 }
