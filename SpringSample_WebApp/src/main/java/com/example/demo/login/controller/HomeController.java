@@ -66,7 +66,7 @@ public class HomeController {
 	
 	@GetMapping("/userDetail/{id:.+}")
 	public String getUserDetail(@ModelAttribute SignupForm form, Model model,
-									@PathVariable("id") String userId) {
+									@PathVariable ("id")String userId) {
 		System.out.println("userId="+userId);
 		model.addAttribute("contents","login/userDetail :: userDetail_contents");
 		
@@ -87,4 +87,26 @@ public class HomeController {
 		return "login/homeLayout";
 	}
 	
+	@PostMapping(value="/userDetail",params = "update")
+	public String postUserDeatailUpdate(@ModelAttribute SignupForm form, Model model) {
+		System.out.println("更新ボタンの処理");
+		
+		User user = new User();
+		user.setUserId(form.getUserId());
+		user.setPassword(form.getPassword());
+		user.setUserName(form.getUserName());
+		user.setBirthday(form.getBirthday());
+		user.setAge(form.getAge());
+		user.setMarriage(form.isMarriage());
+		
+		//更新処理 
+		boolean result = userService.updateOne(user);
+		if(result == true) {
+			model.addAttribute("result","更新成功");
+		}else {
+			model.addAttribute("result","更新失敗");
+		}
+		
+		return getUserList(model);
+	}
 }

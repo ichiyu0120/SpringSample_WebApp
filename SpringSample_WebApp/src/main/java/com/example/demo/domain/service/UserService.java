@@ -47,4 +47,14 @@ public class UserService {
 		return dao.selectOne(userId);
 	}
 
+	//1件更新用メソッド
+	public boolean updateOne(User user) {
+		//1件更新
+		int rowNumber = dao.updateOne(user);
+		boolean result = false;
+		if(0 < rowNumber) {
+			result = true;
+		}
+		return result;
+	}
 }
