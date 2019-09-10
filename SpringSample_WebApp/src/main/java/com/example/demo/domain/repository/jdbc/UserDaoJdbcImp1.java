@@ -110,6 +110,12 @@ public class UserDaoJdbcImp1 implements UserDao{
 				user.getAge(),
 				user.isMarriage(),
 				user.getUserId());
+//		トランザクション確認のため、わざと例外をthrowする
+//		if(0 < rowNumber) {
+//			throw new DataAccessException("トランザクションテスト") {
+//				
+//			};
+//		}
 		return rowNumber;
 	}
 
