@@ -43,8 +43,9 @@ public class UserDaoJdbcImp1 implements UserDao{
 				+ "birthday,"
 				+ "age,"
 				+ "marriage,"
-				+ "role) "
-				+ "VALUES(?,?,?,?,?,?,?)",
+				+ "role,"
+				+ "enable) "
+				+ "VALUES(?,?,?,?,?,?,?,'true')",
 				user.getUserId(),
 				password,
 				user.getUserName(),

@@ -82,7 +82,6 @@ public class HomeController {
 			User user = userService.selectOne(userId);
 			
 			form.setUserId(user.getUserId());
-			form.setPassword(user.getPassword());
 			form.setUserName(user.getUserName());
 			form.setBirthday(user.getBirthday());
 			form.setAge(user.getAge());

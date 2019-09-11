@@ -29,8 +29,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	private static final String USER_SQL =
 			"SELECT "
 			+ " user_id,"
-			+ " password, "
-			+ " true "
+			+ " password,"
+			+ " enabled "
 			+ "FROM m_user "
 			+ "WHERE user_id=?";
 	//ユーザーのロールを取得するSQL
