@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- クラス指定 -->
+<mapper namespace="com.example.demo.domain.repository.mybatis.UserMapper2">
+	
+	<!-- マッピング定義 -->
+	<resultMap type="com.example.demo.domain.model.User" id="user">
+		<id column="user_id" property="userId" />
+		<result column="password" property="password" />
+		<result column="user_name" property="userName" />
+		<result column="birthday" property="birthday" />
+		<result column="age" property="age" />
+		<result column="marriage" property="marriage" />
+		<result column="role" property="role" />
+		<result column="enabled" property="enabled" />
+	</resultMap>
+
+	<!-- 1件登録 insert -->
+	<insert id="insert" parameterType="com.example.demo.domain.model.User">
+		INSERT INTO m_user(
+			user_id,
+			password,
+			user_name,
+			birthday,
+			age,
+			marriage,
+			role,
+			enabled)
+		VALUES(
+			#{userId},
+			#{password},
+			#{userName},
+			#{birthday},
+			#{age},
+			#{marriage},
+			#{role},
+			#{enabled})
+	</insert>
+	
+	<!-- 1件検索 selectOne -->
+	<select id="selectOne" parameterType="string" resultMap="user">
+		SELECT 
+			user_id,
+			password,
+			user_name,
+			birthday,
+			age,
+			marriage,
+			role 
+		FROM 
+			m_user 
+		WHERE 
+			user_id=#{userId}
+	</select>
+
+	<!-- 全件検索 selectMany -->
+	<select id="selectMany" resultMap="user">
+		SELECT 
+			user_id,
+			password,
+			user_name,
+			birthday,
+			age,
+			marriage,
+			role 
+		FROM 
+			m_user
+	</select>
+
+	<!-- 1件更新 updateOne -->
+	<update id="updateOne" parameterType="com.example.demo.domain.model.User">
+		UPDATE 
+			m_user 
+		SET 
+			password=#{password},
+			user_name=#{userName},
+			birthday=#{birthday},
+			age=#{age},
+			marriage=#{marriage} 
+		WHERE 
+			user_id=#{userId}
+	</update>
+
+	<!-- 1件削除 deleteOne -->
+	<delete id="deleteOne" parameterType="string">
+		DELETE 
+		FROM 
+			m_user 
+		WHERE 
+			user_id=#{userId}
+	</delete>
+</mapper>
