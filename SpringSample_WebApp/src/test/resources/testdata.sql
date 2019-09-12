@@ -1,0 +1,1 @@
+INSERT INTO m_user(user_id,password,user_name,birthday,age,marriage,role,enabled) VALUES('satou@xxx.co.jp','$2a$10$By49hWJ26WPXvXxmseKcnOurYiJ3.J3FjT/Pe1AIGfBKhnK3ifUI2','佐藤一郎','1990-01-01',28,'false','ROLE_ADMIN','true')

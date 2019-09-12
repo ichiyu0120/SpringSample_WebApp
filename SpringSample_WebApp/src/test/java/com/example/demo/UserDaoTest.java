@@ -31,9 +31,9 @@ public class UserDaoTest {
 
 		//テスト２が動かない
 //		//カウントメソッドのテスト２
-//		@Test
-//		@Sql("/testdata.sql")
-//		public void countTest2() {
-//			assertEquals(dao.count(),6);
-//		}
+		@Test
+		@Sql("/testdata.sql")
+		public void countTest2() {
+			assertEquals(dao.count(),2);
+		}
 }
